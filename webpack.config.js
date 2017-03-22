@@ -1,4 +1,8 @@
-var webpack = require('webpack');
+'use strict';
+
+const webpack = require('webpack');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -6,7 +10,7 @@ module.exports = {
 
   },
   output: {
-    path: "./public",
+    path: path.join(__dirname, './public'),
     filename: "bundle.js",
     publicPath:"/"
   },
@@ -15,7 +19,7 @@ module.exports = {
     contentBase: "./public"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
@@ -26,8 +30,14 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'style!css!postcss?{browsers: ["last 3 versions", "safari 5", "ie 8", "ie 9", "opera 12.1", "ios 6", "android 4"]}!less'
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          // ?{browsers: ["last 3 versions", "safari 5", "ie 8", "ie 9", "opera 12.1", "ios 6", "android 4"]}
+          'less-loader',
+        ],
       }
     ]
-  }
+  },
 };
