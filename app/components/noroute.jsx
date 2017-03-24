@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default React.createClass({
+class NoRoute extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
@@ -8,4 +12,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+export default NoRoute

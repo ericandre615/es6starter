@@ -13,9 +13,5 @@
     "window": true,
     "document": true,
     "global": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "script"
   }
 }

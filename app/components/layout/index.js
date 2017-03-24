@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 
 import './layout.less';
 
-const Layout = React.createClass({
+class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div id="layout"> 
+      <div id="layout">
         { this.props.children }
       </div>
     );
   }
-});
+}
 
 export default Layout
